@@ -19,7 +19,7 @@
                     <a class="nav-link" href="{{ route('trucks.index') }}">Trucks</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Subunits</a> <!-- Adjust this route according to your subunits setup -->
+                    <a class="nav-link" href="{{ route('subunits.index') }}">Subunits</a> <!-- Adjust this route according to your subunits setup -->
                 </li>
             </ul>
         </div>

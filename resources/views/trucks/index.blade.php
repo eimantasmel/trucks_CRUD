@@ -5,7 +5,8 @@
 <div class="container">
     <h1>Trucks</h1>
     <a href="{{ route('trucks.create') }}" class="btn btn-primary mb-3">Add New Truck</a>
-
+    @include('partials._notifications')
+    
     <table class="table">
         <thead>
             <tr>
@@ -42,9 +43,4 @@
 
 @section('scripts')
     <script src="{{ asset('js/confirmDelete.js') }}"></script>
-    {{-- <script>
-        function confirmDelete() {
-            return confirm("Are you sure you want to delete ?");
-        }
-    </script>
-@endsection --}}
+@endsection 

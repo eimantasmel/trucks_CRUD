@@ -9,6 +9,9 @@ class Subunit extends Model
 {
     use HasFactory;
 
+    // Disable automatic timestamps
+    public $timestamps = false;
+
     protected $fillable = [
         'main_truck_id', // Reference to the main truck
         'subunit_truck_id', // Reference to the subunit truck
@@ -37,5 +40,10 @@ class Subunit extends Model
     public function subunitTruck()
     {
         return $this->belongsTo(Truck::class, 'subunit_truck_id', 'id'); // Specify foreign and local keys
+    }
+
+    public static function getSubunitsByTruckId($id): array
+    {
+        return self::where('subunit_truck_id', $id)->get()->all();
     }
 }
