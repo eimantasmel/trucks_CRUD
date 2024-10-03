@@ -88,7 +88,7 @@ class TruckControllerTest extends TestCase
     
         // Prepare the updated truck data
         $updatedTruckData = [
-            'unit_number' => 'TRK002',
+            'unit_number' => 'TRK001',
             'year' => 2022,
             'notes' => 'Updated truck'
         ];

@@ -37,7 +37,7 @@ class TruckController extends Controller
     
     public function update(Request $request, Truck $truck)
     {
-        $request->validate(Truck::rules()); 
+        $request->validate(Truck::rules($truck->id)); 
         $truck->update($request->all());
         return redirect()->route('trucks.index');
     }
