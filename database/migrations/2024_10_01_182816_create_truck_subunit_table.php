@@ -11,10 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('subunits', function (Blueprint $table) {
+        Schema::create('truck_subunits', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('main_truck_id'); // Reference to the main truck
-            $table->unsignedBigInteger('subunit_truck_id'); // Reference to the subunit truck
+            $table->unsignedBigInteger('subunit_truck_id'); // Reference to the TruckSubunit truck
             $table->date('start_date'); // Start date
             $table->date('end_date'); // End date
 
@@ -29,6 +29,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('truck_subunit');
+        Schema::dropIfExists('truck_subunits');
     }
 };

@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TruckController;
-use App\Http\Controllers\SubunitController;
+use App\Http\Controllers\TruckSubunitController;
 
 Route::get('/', function () {
     return redirect('/trucks');
@@ -10,5 +10,5 @@ Route::get('/', function () {
 
 
 Route::resource('trucks', TruckController::class);
-Route::resource('subunits', SubunitController::class);
+Route::resource('truck_subunits', TruckSubunitController::class);
 

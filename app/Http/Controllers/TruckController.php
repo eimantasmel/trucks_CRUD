@@ -25,11 +25,6 @@ class TruckController extends Controller
         return redirect()->route('trucks.index');
     }
     
-    public function show(Truck $truck)
-    {
-        return view('trucks.show', compact('truck'));
-    }
-    
     public function edit(Truck $truck)
     {
         return view('trucks.edit', compact('truck'));

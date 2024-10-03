@@ -4,7 +4,6 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Validation\Rule;
 
 class Truck extends Model
 {
@@ -29,9 +28,5 @@ class Truck extends Model
            'year'        => "required|integer|between:1900," . ($currentYear + 5), // Year between 1900 and 5 years from now
            'notes'       => 'nullable|string',
        ];
-
-    //    if ($id) {
-    //     $rules['unit_number'][] = Rule::unique('trucks')->ignore($id); // Exclude the current truck's unit_number from the uniqueness check
-    //     }
    }
 }

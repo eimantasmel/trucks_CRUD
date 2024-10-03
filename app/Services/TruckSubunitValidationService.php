@@ -2,11 +2,11 @@
 
 namespace App\Services;
 
-use App\Models\Subunit;
+use App\Models\TruckSubunit;
 use Illuminate\Http\Request;
 
 
-class SubunitValidationService
+class TruckSubunitValidationService
 {
 
     public function __construct(protected Request $request)
@@ -44,7 +44,7 @@ class SubunitValidationService
     }
 
     /**
-     * This method checks if the main truck and subunit are not the same truck
+     * This method checks if the main truck and TruckSubunit are not the same truck
      */
     private function validateTruckSelection($main_truck_id, $subunit_truck_id) : bool
     {
@@ -56,11 +56,11 @@ class SubunitValidationService
     }
 
     /**
-     * This method checks if the provided date ranges overlaps with certain subunit truck.
+     * This method checks if the provided date ranges overlaps with certain TruckSubunit truck.
      */
     private function validateSubunitDate($subunit_truck_id, $start_date, $end_date): bool
     {
-        $subunits = Subunit::getSubunitsByTruckId($subunit_truck_id);
+        $subunits = TruckSubunit::getSubunitsByTruckId($subunit_truck_id);
 
         foreach ($subunits as $subunit) {
             // If request->id is set, it indicates an edit action, 
@@ -71,7 +71,7 @@ class SubunitValidationService
             $subunit_start_date = $subunit->start_date;
             $subunit_end_date = $subunit->end_date;
 
-            // If the start_date or end_date falls within any existing subunit date range
+            // If the start_date or end_date falls within any existing TruckSubunit date range
             if (
                 ($start_date >= $subunit_start_date && $start_date <= $subunit_end_date) ||
                 ($end_date >= $subunit_start_date && $end_date <= $subunit_end_date) ||

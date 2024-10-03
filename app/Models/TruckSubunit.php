@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Subunit extends Model
+class TruckSubunit extends Model
 {
     use HasFactory;
 
@@ -14,12 +14,12 @@ class Subunit extends Model
 
     protected $fillable = [
         'main_truck_id', // Reference to the main truck
-        'subunit_truck_id', // Reference to the subunit truck
+        'subunit_truck_id', // Reference to the TruckSubunit truck
         'start_date', 
         'end_date'
     ];
 
-    // Validation rules within the subunit model
+    // Validation rules within the TruckSubunit model
     public static function rules()
     {
         return [
@@ -36,7 +36,7 @@ class Subunit extends Model
         return $this->belongsTo(Truck::class, 'main_truck_id', 'id'); // Specify foreign and local keys
     }
 
-    // Define the relationship to the subunit truck
+    // Define the relationship to the TruckSubunit truck
     public function subunitTruck()
     {
         return $this->belongsTo(Truck::class, 'subunit_truck_id', 'id'); // Specify foreign and local keys

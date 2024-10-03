@@ -7,7 +7,7 @@ document.getElementById('main_truck_id').addEventListener('change', function() {
         subunitTruckSelect.options[i].disabled = false;
     }
 
-    // Disable the selected main truck option in the subunit select
+    // Disable the selected main truck option in the TruckSubunit select
     if (mainTruck) {
         subunitTruckSelect.querySelector(`option[value="${mainTruck}"]`).disabled = true;
     }
@@ -22,7 +22,7 @@ document.getElementById('subunit_truck_id').addEventListener('change', function(
         mainTruckSelect.options[i].disabled = false;
     }
 
-    // Disable the selected subunit truck option in the main truck select
+    // Disable the selected TruckSubunit truck option in the main truck select
     if (subunitTruck) {
         mainTruckSelect.querySelector(`option[value="${subunitTruck}"]`).disabled = true;
     }
