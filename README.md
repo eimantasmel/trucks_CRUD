@@ -39,6 +39,7 @@ This Laravel project provides a management system for trucks, enabling CRUD oper
 2. Run `composer install` to install dependencies.
 3. Set up .env file
 4. Run database migrations using `php artisan migrate`.
-5. Run automated tests using `php artisan test`.
 5. Start the development server using `php artisan serve`.
+6. Run automated tests using `php artisan test`.
+
 
