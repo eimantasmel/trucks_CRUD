@@ -30,8 +30,8 @@ class Truck extends Model
        ];
    }
 
-   public function subUnits()
-   {
-        return $this->hasMany(Subunit::class);
-   }
+//    public function subUnits()
+//    {
+//         return $this->hasMany(Subunit::class);
+//    }
 }

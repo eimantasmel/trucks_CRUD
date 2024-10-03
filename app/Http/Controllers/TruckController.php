@@ -9,7 +9,7 @@ class TruckController extends Controller
 {
     public function index()
     {
-        $trucks = Truck::all();
+        $trucks = Truck::orderBy('id', 'desc')->get();
         return view('trucks.index', compact('trucks'));
     }
     

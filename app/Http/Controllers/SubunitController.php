@@ -18,7 +18,10 @@ class SubunitController extends Controller
     // Display a listing of the resource
     public function index()
     {
-        $subunits = Subunit::with(['mainTruck', 'subunitTruck'])->get();
+        $subunits = Subunit::with(['mainTruck', 'subunitTruck'])
+                    ->orderBy('id', 'desc') // Order by id in descending order
+                    ->get();
+
         return view('subunits.index', compact('subunits'));
     }
 
@@ -31,8 +34,13 @@ class SubunitController extends Controller
 
     // Store a newly created resource in storage
     public function store(Request $request)
-    {
+    {       
         $request->validate(Subunit::rules());
+        $validation_error = $this->subunitValidationService->validate();
+
+        if($validation_error)
+            return $validation_error;
+
         Subunit::create($request->all());
         return redirect()->route('subunits.index')->with('success', 'Subunit created successfully.');
     }
@@ -54,6 +62,11 @@ class SubunitController extends Controller
     public function update(Request $request, Subunit $subunit)
     {
         $request->validate(Subunit::rules());
+        $validation_error = $this->subunitValidationService->validate();
+
+        if($validation_error)
+            return $validation_error;
+
         $subunit->update($request->all());
         return redirect()->route('subunits.index')->with('success', 'Subunit updated successfully.');
     }
